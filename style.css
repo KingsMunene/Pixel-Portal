@@ -221,6 +221,43 @@ footer .copyright {
   text-align: center;
 }
 
+
+/* About Page */
+
+#page-header{
+  background-image: url(images/banner.png);
+  width: 100%;
+  height: 40vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 14px;
+}
+
+#page-header h2,
+#page-header p{
+  color: #E3E6F3;
+}
+
+#about-head img{
+  width: 50%;
+  height: auto;
+}
+
+#about-head{
+  display: flex;
+  align-items: center;
+}
+
+#about-head div{
+  padding-left: 40px;
+}
+
+
+
+
 @media (max-width:799px) {
   #navbar {
     display: flex;
@@ -260,9 +297,10 @@ footer .copyright {
     font-size: 24px;
   }
 
-  #upload{
+  #upload {
     height: 70vh;
   }
+
   #upload #upload-box img {
     height: 40vh;
   }
@@ -275,16 +313,31 @@ footer .copyright {
 }
 
 @media (max-width:477px) {
-  #header{
+  #header {
     padding: 10px 40px;
   }
 
   #hero {
     padding: 0 20px;
     background-position: 55%;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  /* About Page */
+
+  #about-head{ 
+    flex-direction: column;
+  }
+
+  #about-head img {
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-h2 {
-  font-size: 32px;
+#about-head div {
+  padding-left: 00px;
 }
 }
