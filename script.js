@@ -7,15 +7,7 @@
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyCcEntZ6KlsUHzPDJnlhNN82hb3-I5p7hs",
-    authDomain: "pixelportal-7b117.firebaseapp.com",
-    projectId: "pixelportal-7b117",
-    storageBucket: "pixelportal-7b117.appspot.com",
-    messagingSenderId: "331269724419",
-    appId: "1:331269724419:web:721994cc2d21a8e7113136",
-    measurementId: "G-57CYXQR9NJ"
-};
+
 
 
 const bar = document.getElementById('bar');
