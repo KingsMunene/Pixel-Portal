@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -52,162 +53,217 @@ body {
   width: 100%;
 }
 
-#header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 80px;
-    background-color: #E3E6F3;
-    box-shadow: 0px 5px 15px #088178;
-    z-index: 999;
-    position: sticky;
-    top: 0;
-    left: 0;
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  background-color: #E3E6F3;
+  box-shadow: 0px 5px 15px #088178;
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
-#header a{
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    color: #1a1a1a;
-    transition: 0.3s ease;
+#header a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: 0.3s ease;
 }
 
-#navbar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#navbar li{
-    list-style: none;
-    padding: 0 20px;
+#navbar li {
+  list-style: none;
+  padding: 0 20px;
 }
 
 #navbar li a:hover,
-#navbar li a.active{
-    color: #088178;
-    text-decoration:underline;
+#navbar li a.active {
+  color: #088178;
+  text-decoration: underline;
 }
 
-#hero{
-    background-image: url(images/hero3.jpg);
-    height: 90vh;
-    width: 100%;
-    background-size:cover;
-    background-position:  top 25% right 0;
-    padding: 0 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+
+#mobile {
+  display: none;
+}
+
+#close {
+  display: none;
+}
+
+#hero {
+  background-image: url(images/hero3.jpg);
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+  background-position: top 25% right 0;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 #hero h2,
-#hero p{
-    color: #ffffff;
+#hero p {
+  color: #ffffff;
 }
 
-#hero a{
+#hero a {
   color: white;
   text-decoration: none;
 }
 
-#hero button{
-    background-color: #088178;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
+#hero button {
+  background-color: #088178;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 
-#upload{
+#upload {
   background-color: #fcfefd;
   height: 90vh;
   width: 100%;
-  background-size:cover;
+  background-size: cover;
   display: flex;
   justify-items: center;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
-#upload #upload-box img{
-  height:70vh;
+#upload #upload-box img {
+  height: 70vh;
 }
 
-#upload h4{
+#upload h4 {
   padding-top: 20px;
 }
 
-#upload #upload-box{
-  
+#upload #upload-box {
   height: 100%;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
-footer{
+footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-footer .col{
+footer .col {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 20px;
 }
 
-footer .companyName{
+footer .companyName {
   margin-bottom: 20px;
 }
 
-footer h4{
+footer h4 {
   font-size: 14px;
   padding-bottom: 20px;
 }
 
 
-footer p{
+footer p {
   font-size: 13px;
-  padding-bottom:0 0 8px 0;
+  padding-bottom: 0 0 8px 0;
 }
 
-footer a{
+footer a {
   font-size: 13px;
   text-decoration: none;
   color: black;
   margin-bottom: 10px;
 }
 
-footer .follow{
+footer .follow {
   margin-top: 20px;
 }
 
-footer .follow i{
+footer .follow i {
   color: #465b52;
   padding-right: 4px;
   cursor: pointer;
 }
 
-footer .paymentInfo .row img{
+footer .paymentInfo .row img {
   border: 1px solid #088178;
-  border-radius: 6px; 
+  border-radius: 6px;
 }
 
 footer .follow i:hover,
-footer a:hover{
+footer a:hover {
   color: #088178;
 }
 
-footer .copyright{
+footer .copyright {
   width: 100%;
   text-align: center;
+}
+
+@media (max-width:799px) {
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color: #E3E6F3;
+    box-shadow: 0 40px 60px rgb(0, 0, 0, 0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s;
+
+  }
+
+  #navbar.active {
+    right: 0px;
+  }
+
+  #navbar li {
+    margin-bottom: 25px;
+  }
+
+  #mobile {
+    display: flex;
+  }
+
+  #close {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #222;
+    font-size: 24px;
+  }
+
+  #upload{
+    height: 60vh;
+  }
+  #upload #upload-box img {
+    height: 40vh;
+  }
 }
