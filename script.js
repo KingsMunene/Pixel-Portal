@@ -1,3 +1,34 @@
+
+
+
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+// import { getAuth } from "firebase/auth";
+// import { getDatabase } from "firebase/database";
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyCcEntZ6KlsUHzPDJnlhNN82hb3-I5p7hs",
+    authDomain: "pixelportal-7b117.firebaseapp.com",
+    projectId: "pixelportal-7b117",
+    storageBucket: "pixelportal-7b117.appspot.com",
+    messagingSenderId: "331269724419",
+    appId: "1:331269724419:web:721994cc2d21a8e7113136",
+    measurementId: "G-57CYXQR9NJ"
+};
+
+
+const bar = document.getElementById('bar');
+const nav = document.getElementById('navbar');
+
+if(bar){
+    bar.addEventListener('click', (e)=>{
+        nav.classList.add('active');
+    })
+}
+
+
+
 const input = document.getElementById('image-upload');
 input.addEventListener('change', (event) => {
     const files = event.target.files;
@@ -19,7 +50,7 @@ input.addEventListener('change', (event) => {
             imageType: imageType
         };
 
-        console.log(printImage);
+        console.log(files.length);
     };
     reader.readAsDataURL(file);
 
