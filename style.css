@@ -111,6 +111,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  
 }
 
 #hero h2,
@@ -137,17 +138,19 @@ button {
 
 #upload {
   background-color: #fcfefd;
-  height: 80vh;
-  width: 100%;
+  height: 90vh;
   background-size: cover;
   display: flex;
   justify-items: center;
   flex-direction: column;
   align-items: center;
+  margin: 3px;
+  box-shadow: 0px 5px 15px #088178;
+  border-radius: 20px;
 }
 
 #upload #upload-box img {
-  height: 40vh;
+  height: 50vh;
 }
 
 #upload #upload-box {
@@ -159,19 +162,19 @@ button {
 }
 
 #upload #upload-box h4{
-  padding-top: 50px;
+  padding-top: 0px;
 }
 
 /* Preview Section */
 #preview-section {
   background-color: #fcfefd;
-  margin-top: 40px;
+  height: auto;
   width: 100%;
-  padding: 0 80px;
+  background-size: cover;
   display: flex;
+  justify-items: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 #preview-section .button{
@@ -186,22 +189,24 @@ button {
 #preview-section h2{
   font-size: 26px;
   margin-bottom: 20px;
+  margin-top: 40px;
   text-align: center;
 }
 
 #preview-section .photo{
+  width: 20%;
   min-width: 250px;
   padding: 10px 12px;
   margin-right: 20px;
   margin-top: 20px;
   border: 1px solid #cce7d0;
   border-radius: 20px;
-  box-shadow: 20px 20px 30px rgb(0,0,0,0.2);
+  box-shadow: 20px 20px 20px 20px rgb(0,0,0,0.2);
 
 }
 
 #preview-section .photo img{
-  width: 250pxpx;
+  width: 100%;
   height: 34vh;
   padding: 28px;
   border-radius: 10px;
