@@ -125,8 +125,13 @@ addToCartBtn.addEventListener('click', (e) => {
 function handleAddToCartClick(event) {
   const cart = document.querySelector('#pixel-cart tbody');
   const cartSummary = document.querySelector('#cart-totals');
+  const cartSector = document.querySelector('#pixel-cart h3');
 
-  cart.scrollIntoView({ behavior: 'smooth' });
+  
+  
+  window.scrollTo({top: cartSector.offsetTop-200, behavior:'smooth'});
+
+
   photos.forEach((photo) => {
     const cartTableRow = document.createElement('tr');
     cartTableRow.innerHTML = `
@@ -190,8 +195,7 @@ function handleAddToCartClick(event) {
 
   const proceedToOrderBtn = document.querySelector('#proceed-btn');
   proceedToOrderBtn.addEventListener('click', () => {
-    
-    orderSection.scrollIntoView({ behavior: 'smooth' })
+    window.scrollTo({top: orderSection.offsetTop-150, behavior:'smooth'});
   });
 
   // Initial update of the subtotal
