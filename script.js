@@ -23,7 +23,7 @@ if (bar) {
 const accountIcon = document.getElementById('account-icon');
 const subMenu = document.querySelector('.sub-menu-wrap');
 
-if(accountIcon){
+if (accountIcon) {
   accountIcon.addEventListener('click', (e) => {
     subMenu.classList.toggle('open');
   });
@@ -127,6 +127,7 @@ addToCartBtn.addEventListener('click', (e) => {
 
 function handleAddToCartClick(event) {
   const cart = document.querySelector('#pixel-cart tbody');
+  const cartSummary = document.querySelector('#cart-totals');
 
   cart.scrollIntoView({ behavior: 'smooth' });
   photos.forEach((photo) => {
@@ -155,6 +156,27 @@ function handleAddToCartClick(event) {
       updateSubtotal(cartTableRows);
     });
   });
+
+  cartSummary.innerHTML = `
+   <div id="subtotal">
+            <h3>Pixel Summary</h3>
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td id="subtotal-cell"></td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td id="shipping-cell">Ksh 180</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td id="grandtotal-cell">Ksh 0.00</td>
+                </tr>
+            </table>
+            <button>Proceed</button>
+        </div>
+  `
 
   // Initial update of the subtotal
   updateSubtotal(cartTableRows);
@@ -197,6 +219,6 @@ function getPriceForSize(size) {
   }
 }
 
-function scrollToUpload(){
-  document.querySelector('#upload').scrollIntoView({behavior: 'smooth'});
+function scrollToUpload() {
+  document.querySelector('#upload').scrollIntoView({ behavior: 'smooth' });
 }
