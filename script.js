@@ -137,7 +137,7 @@ function handleAddToCartClick(event) {
       <td><img src="${URL.createObjectURL(photo.file)}" alt="product image"></td>
       <td>${photo.printSize}</td>
       <td><input type="number" value="1" min="1" class="quantity-input"></td>
-      <td class="price-cell">$${photo.price.toFixed(2)}</td>
+      <td class="price-cell">Ksh${photo.price.toFixed(2)}</td>
     `;
     cart.appendChild(cartTableRow);
 
@@ -150,7 +150,7 @@ function handleAddToCartClick(event) {
     quantityInput.addEventListener('input', (e) => {
       const quantity = parseInt(e.target.value, 10);
       const totalPrice = photo.price * quantity;
-      priceCell.textContent = `$${totalPrice.toFixed(2)}`;
+      priceCell.textContent = `Ksh ${totalPrice.toFixed(2)}`;
 
       // Update the subtotal
       updateSubtotal(cartTableRows);
@@ -189,7 +189,7 @@ function updateSubtotal(cartTableRows) {
   cartTableRows.forEach((cartTableRow) => {
     const priceCell = cartTableRow.querySelector('.price-cell');
     const totalPriceText = priceCell.textContent;
-    const totalPrice = parseFloat(totalPriceText.replace('$', ''));
+    const totalPrice = parseFloat(totalPriceText.replace('Ksh', ''));
     subtotal += totalPrice;
   });
 
