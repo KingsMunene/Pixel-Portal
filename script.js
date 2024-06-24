@@ -33,9 +33,9 @@ if (accountIcon) {
 const photoInput = document.getElementById('image-upload');
 const photosContainer = document.querySelector('.photos-container');
 const previewSection = document.querySelector('#preview-section');
+const orderSection = document.getElementById('order-section');
 
-
-let subtotal = 0.00; // Initialize subtotal variable
+// let subtotal = 0.00; // Initialize subtotal variable
 
 
 // Create an array to store all cart table rows
@@ -53,7 +53,6 @@ photoInput.addEventListener('change', (e) => {
   photos = [];
 
   const printSizeSelects = [];
-
   previewSection.scrollIntoView({ behavior: 'smooth' });
 
   for (const file of files) {
@@ -76,6 +75,7 @@ photoInput.addEventListener('change', (e) => {
             <i id="remove-photo" class="fa-solid fa-trash-can"></i>
         </div>
         `;
+
       photosContainer.appendChild(photoPreview);
 
       const printSizeSelect = photoPreview.querySelector('.print-size select');
@@ -102,15 +102,12 @@ photoInput.addEventListener('change', (e) => {
 
         const index = photos.findIndex(p => p.file === file);
         photos.splice(index, 1);
-
-        console.log('Photo deleted');
-        console.log(`${photos.length}`);
       })
     };
     reader.readAsDataURL(file);
   }
-  previewSection.appendChild(addToCartBtn);
 
+  previewSection.appendChild(addToCartBtn);
 });
 
 addToCartBtn.addEventListener('click', (e) => {
@@ -133,7 +130,7 @@ function handleAddToCartClick(event) {
   photos.forEach((photo) => {
     const cartTableRow = document.createElement('tr');
     cartTableRow.innerHTML = `
-      <td><i class="fa-solid fa-trash-can"></i></td>
+      <td><i class="fa-solid fa-trash-can" id="delete-from-cart"></i></td>
       <td><img src="${URL.createObjectURL(photo.file)}" alt="product image"></td>
       <td>${photo.printSize}</td>
       <td><input type="number" value="1" min="1" class="quantity-input"></td>
@@ -151,9 +148,22 @@ function handleAddToCartClick(event) {
       const quantity = parseInt(e.target.value, 10);
       const totalPrice = photo.price * quantity;
       priceCell.textContent = `Ksh ${totalPrice.toFixed(2)}`;
-
       // Update the subtotal
       updateSubtotal(cartTableRows);
+    });
+
+    const removeFromCart = cartTableRow.querySelector('#delete-from-cart');
+    removeFromCart.addEventListener('click', () => {
+      cart.removeChild(cartTableRow);
+
+      // Find the index of the deleted row
+      const index = photos.findIndex(p => p.photo === photo);
+      cartTableRows.splice(index, 1);
+
+      updateSubtotal(cartTableRows);
+
+      console.log('Photo deleted');
+      console.log(`${photos.length}`);
     });
   });
 
@@ -174,18 +184,26 @@ function handleAddToCartClick(event) {
                     <td id="grandtotal-cell">Ksh 0.00</td>
                 </tr>
             </table>
-            <button>Proceed</button>
+            <button id="proceed-btn">Proceed</button>
         </div>
-  `
+  `;
+
+  const proceedToOrderBtn = document.querySelector('#proceed-btn');
+  proceedToOrderBtn.addEventListener('click', () => {
+    
+    orderSection.scrollIntoView({ behavior: 'smooth' })
+  });
 
   // Initial update of the subtotal
   updateSubtotal(cartTableRows);
 }
 
+
+
 // Function to update the subtotal
 function updateSubtotal(cartTableRows) {
   let subtotal = 0.00;
-  let grandTotal = 180.00;
+  let shipping = 180.00;
   cartTableRows.forEach((cartTableRow) => {
     const priceCell = cartTableRow.querySelector('.price-cell');
     const totalPriceText = priceCell.textContent;
@@ -193,14 +211,14 @@ function updateSubtotal(cartTableRows) {
     subtotal += totalPrice;
   });
 
-  grandTotal += subtotal;
+  shipping += subtotal;
 
   console.log(`Subtotal: $${subtotal.toFixed(2)}`); // Log subtotal
   //display the subtotal in the UI
   document.querySelector('#subtotal-cell').textContent = `Ksh ${subtotal.toFixed(2)}`;
 
   //Display GrandTotal
-  document.querySelector('#grandtotal-cell').textContent = `Ksh ${grandTotal.toFixed(2)}`;
+  document.querySelector('#grandtotal-cell').textContent = `Ksh ${shipping.toFixed(2)}`;
 }
 
 
