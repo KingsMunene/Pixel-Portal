@@ -90,6 +90,58 @@ body {
   color: #088178;
   text-decoration: underline;
 }
+.sub-menu-wrap{
+  position:absolute;
+  top: 100%;
+  right: 10%;
+  width: 320px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open {
+  max-height: 400px;
+}
+.sub-menu{
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+}
+
+.sub-menu hr{
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+.sub-menu-link{
+  display: flex;
+  align-items: center;
+  color: #1a1a1a;
+  margin: 12px 0;
+}
+
+.sub-menu-link p{
+  width: 100%;
+}
+.sub-menu-link i{
+  margin-right: 15px;
+}
+
+.sub-menu-link:hover p{
+  font-weight: 900;
+}
+
+.sub-menu-link span{
+  font-size: 22px;
+  transition: transform 0.5s;
+}
+.sub-menu-link:hover span{
+  transform: translateX(5px);
+}
 
 
 #mobile {
