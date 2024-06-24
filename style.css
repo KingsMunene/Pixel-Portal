@@ -259,6 +259,11 @@ button {
   margin-bottom: 20px;
   margin-top: 40px;
   text-align: center;
+  display: none;
+}
+
+#preview-section .prev-head{
+  display: block;
 }
 
 #preview-section .photo{
