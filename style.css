@@ -86,10 +86,26 @@ body {
 }
 
 #navbar li a:hover,
-#navbar li a.active {
+#navbar li a.active{
   color: #088178;
   text-decoration: underline;
 }
+
+
+#account-icon{
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+#account-icon:hover {
+  color: #088178;
+  text-decoration: underline;
+}
+
+
 .sub-menu-wrap{
   position:absolute;
   top: 100%;
