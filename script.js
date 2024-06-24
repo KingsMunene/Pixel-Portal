@@ -20,6 +20,15 @@ if (bar) {
   })
 }
 
+const accountIcon = document.getElementById('account-icon');
+const subMenu = document.querySelector('.sub-menu-wrap');
+
+if(accountIcon){
+  accountIcon.addEventListener('click', (e) => {
+    subMenu.classList.toggle('open');
+  });
+}
+
 //Upload and Preview Code
 const photoInput = document.getElementById('image-upload');
 const photosContainer = document.querySelector('.photos-container');
@@ -176,13 +185,13 @@ function updateSubtotal(cartTableRows) {
 function getPriceForSize(size) {
   switch (size) {
     case '4"x6" Print':
-      return 20.00;
+      return 50.00;
     case '6"x8" Print':
-      return 30.00;
+      return 75.00;
     case '8"x10" Print':
-      return 40.00;
+      return 375.00;
     case '8"x12" Print':
-      return 60.00;
+      return 600.00;
     default:
       return 0.00;
   }
