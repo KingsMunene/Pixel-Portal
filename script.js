@@ -34,7 +34,7 @@ const photoInput = document.getElementById('image-upload');
 const photosContainer = document.querySelector('.photos-container');
 const previewSection = document.querySelector('#preview-section');
 const orderSection = document.getElementById('order-section');
-
+const previewSectionHeader = document.querySelector('#preview-section h2');
 // let subtotal = 0.00; // Initialize subtotal variable
 
 
@@ -54,6 +54,8 @@ photoInput.addEventListener('change', (e) => {
 
   const printSizeSelects = [];
   previewSection.scrollIntoView({ behavior: 'smooth' });
+  
+  previewSectionHeader.className += 'prev-head'
 
   for (const file of files) {
     const reader = new FileReader();
@@ -171,6 +173,17 @@ function handleAddToCartClick(event) {
       console.log(`${photos.length}`);
     });
   });
+
+  const oderCard = document.createElement('div');
+  oderCard.innerHTML = `
+      <h3>Make Order</h3>
+      <p>Enter your phone number</p>
+      <input type="decimal" placeholder="0700">
+      <button>Pay</button>
+  `;
+  if(orderSection.children.length < 1){
+    orderSection.appendChild(oderCard);
+  }
 
   cartSummary.innerHTML = `
    <div id="subtotal">
